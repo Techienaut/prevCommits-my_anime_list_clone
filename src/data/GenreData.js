@@ -1,4 +1,4 @@
-export let animeGenreList = [
+export let animeGenreCodes = [
   "Action",
   "Adventure",
   "Cars",
@@ -43,7 +43,8 @@ export let animeGenreList = [
   "Seinen",
   "Josei"
 ];
-export let mangaGenreList = [
+export let mangaGenreCodes = [
+  "ALL",
   "Action",
   "Adventure",
   "Cars",

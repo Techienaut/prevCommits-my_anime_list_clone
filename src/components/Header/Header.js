@@ -11,18 +11,18 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import "./Header.css";
-import { animeGenreList, mangaGenreList } from "../../data/GenreData";
+import { animeGenreCodes, mangaGenreCodes } from "../../data/GenreData";
 
 // forwardRef again here!
 // NavDropdown needs access to the DOM of the Menu to measure it
-let animeGenreItems = animeGenreList.map((genre, index) => {
+let animeGenreItems = animeGenreCodes.map((genre, index) => {
   return (
     <LinkContainer key={index} to={`/anime-genre/${genre.toLowerCase()}`}>
       <NavDropdown.Item eventKey={`1.${index + 1}`}>{genre}</NavDropdown.Item>
     </LinkContainer>
   );
 });
-let mangaGenreItems = mangaGenreList.map((genre, index) => {
+let mangaGenreItems = mangaGenreCodes.map((genre, index) => {
   return (
     <LinkContainer key={index} to={`/manga-genre/${genre.toLowerCase()}`}>
       <NavDropdown.Item eventKey={`1.${index + 1}`}>{genre}</NavDropdown.Item>

@@ -1,13 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./Main.css";
-import "../GenreCarousel/GenreCarousel";
-import GenreCarousel from "../GenreCarousel/GenreCarousel";
-import { animeGenreList, mangaGenreList } from "../../data/GenreData";
+import GenreView from "../GenreView/GenreView";
+import SingleShow from "../SingleShow/SingleShow";
+import { animeGenreCodes, mangaGenreCodes } from "../../data/GenreData";
+import {
+  Route,
+  Redirect,
+  Link,
+  Switch,
+  BrowserRouter as Router
+} from "react-router-dom";
 
 function Main() {
   return (
     <div className="Main">
-      <GenreCarousel genre={1} type="anime" />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/anime-genre/all" />
+          </Route>
+          <Route
+            path="/anime-genre/all"
+            render={routerProps => (
+              <GenreView type="anime" genreCodes={animeGenreCodes} />
+            )}
+          />
+          <Route
+            path="/mnaga-genre/all"
+            render={routerProps => (
+              <GenreView type="manga" genreCodes={mangaGenreCodes} />
+            )}
+          />
+          <Route
+            path="/anime/id/:id"
+            render={routerProps => <SingleShow type="anime" {...routerProps} />}
+          />
+        </Switch>
+      </Router>
     </div>
   );
 }
