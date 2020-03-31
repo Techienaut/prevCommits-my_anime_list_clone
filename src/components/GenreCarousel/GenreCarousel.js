@@ -4,6 +4,13 @@ import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import useSlidesPerScroll from "../../helpers/useSlidesPerScroll";
 import { animeGenreCodes, mangaGenreCodes } from "../../data/GenreData";
+import {
+  Route,
+  Redirect,
+  Link,
+  Switch,
+  BrowserRouter as Router
+} from "react-router-dom";
 
 function GenreCarousel(props) {
   const [actionData, setActionData] = useState("");
@@ -33,20 +40,24 @@ function GenreCarousel(props) {
       return (
         <div className="animeItem">
           <div style={{ minHeight: "110px", position: "relative" }}>
-            <p
-              style={{
-                position: "absolute",
-                bottom: 0,
-                fontSize: "16px",
-                lineHeight: 1.2,
-                width: "90px",
-                marginBottom: "6px"
-              }}
-            >
-              {anime.title}
-            </p>
+            <Link to={`/anime/id/${anime.mal_id}`} style={{ color: "white" }}>
+              <p
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  fontSize: "16px",
+                  lineHeight: 1.2,
+                  width: "90px",
+                  marginBottom: "6px"
+                }}
+              >
+                {anime.title}
+              </p>
+            </Link>
           </div>
-          <img style={{ height: "140px" }} src={anime.image_url} alt="" />
+          <Link to={`/anime/id/${anime.mal_id}`} style={{ color: "white" }}>
+            <img style={{ height: "140px" }} src={anime.image_url} alt="" />
+          </Link>
           <div style={{ minHeight: "110px" }}></div>
         </div>
       );
