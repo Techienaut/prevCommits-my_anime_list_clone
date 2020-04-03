@@ -3,11 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import {
+  Route,
+  Redirect,
+  Link,
+  Switch,
+  BrowserRouter as Router
+} from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
+      <Router>
+        <Header />
+        <Main />
+      </Router>
     </div>
   );
 }

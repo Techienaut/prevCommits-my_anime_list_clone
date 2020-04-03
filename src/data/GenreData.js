@@ -44,7 +44,6 @@ export let animeGenreCodes = [
   "Josei"
 ];
 export let mangaGenreCodes = [
-  "ALL",
   "Action",
   "Adventure",
   "Cars",
